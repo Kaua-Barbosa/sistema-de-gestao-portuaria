@@ -45,7 +45,7 @@ inclua biblioteca Arquivos --> a
 		limpa()
 enquanto (opc != 7)
 	{
-		escreva("seja bem vindo ao nosso sistema escolha uma das opções a seguir")
+		escreva("seja bem vindo ao nosso sistema escolha uma das opções a seguir:")
 		u.aguarde(2500)
 	
 
@@ -221,7 +221,7 @@ enquanto (opc != 7)
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3383; 
+ * @POSICAO-CURSOR = 1182; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
