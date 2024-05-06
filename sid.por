@@ -5,7 +5,7 @@ inclua biblioteca Arquivos --> a
 	funcao inicio()
 	{
 		cadeia linha
-		inteiro posi,h,k,numb = 1 ,nu = 1
+		inteiro arquivo,posi,h,k,numb = 1 ,nu = 1
 
 		logico res 
 		
@@ -45,7 +45,7 @@ inclua biblioteca Arquivos --> a
 		limpa()
 enquanto (opc != 7)
 	{
-		escreva("seja bem vindo ao nosso sistema escolha uma das opções a seguir:")
+		escreva("\nseja bem vindo ao nosso sistema escolha uma das opções a seguir:")
 		u.aguarde(2500)
 	
 
@@ -62,7 +62,9 @@ enquanto (opc != 7)
 		leia(opc)
 		limpa()
 
-		se (opc ==1){
+
+	escolha(opc){
+	 caso (1):
 	
 		para (i = 0 ; i < 1 ; i++ ){
 			escreva("entrada de navio")
@@ -71,7 +73,7 @@ enquanto (opc != 7)
 				escreva(rotulo[j])
 				leia(n[i][j])
 			}	
-			inteiro arquivo = a.abrir_arquivo("./navio.txt",a.MODO_ACRESCENTAR)
+			arquivo = a.abrir_arquivo("./navio.txt",a.MODO_ACRESCENTAR)
 					a.escrever_linha("navio: " + n[0][0],arquivo)
 					a.escrever_linha("data: " + n[0][1],arquivo)
 					a.escrever_linha("hora: " + n[0][2],arquivo)
@@ -85,12 +87,12 @@ enquanto (opc != 7)
 		}
 		limpa()
 		escreva("operaçao feita com sucesso")
-		}	
-
-		senao se (opc ==2){
+		pare	
+		
+	 caso(2):
 
 			//apresentar na tela
-			inteiro arquivo = a.abrir_arquivo("C:/Users/User/Desktop/pr porto stud/navio.txt",a.MODO_LEITURA)
+			arquivo = a.abrir_arquivo("C:/Users/User/Desktop/pr porto stud/navio.txt",a.MODO_LEITURA)
 			enquanto (nao a.fim_arquivo(arquivo)){
 				linha = a.ler_linha(arquivo)
 				se(linha != ("") ){
@@ -140,10 +142,10 @@ enquanto (opc != 7)
 			}
 			a.fechar_arquivo(arquivo)
 			escreva("operação concluida")
-			
+			pare
 
-		}
-		senao se (opc == 3) {
+		
+		caso(3):
 
 			//entrada de dados
 			para (a = 0 ; a < 1 ; a++){
@@ -154,7 +156,7 @@ enquanto (opc != 7)
 					leia(c[a][b])
 				}
 				//armazenamento de dados
-				inteiro arquivo = a.abrir_arquivo("./container.txt",a.MODO_ACRESCENTAR)
+				arquivo = a.abrir_arquivo("./container.txt",a.MODO_ACRESCENTAR)
 					a.escrever_linha("navio origem/destino: " + c[0][0],arquivo)
 					a.escrever_linha("data: " + c[0][1],arquivo)
 					a.escrever_linha("hora: " + c[0][2],arquivo)
@@ -168,13 +170,14 @@ enquanto (opc != 7)
 			}
 			limpa()
 			escreva("operação feita com sucesso")
-		}
+			pare
 
-		senao se (opc == 4){
+		caso(4):
 			
-		}
-		senao se (opc == 5){
-			inteiro arquivo = a.abrir_arquivo("./navio.txt",a.MODO_LEITURA)
+			pare
+			
+		caso(5):
+			arquivo = a.abrir_arquivo("./navio.txt",a.MODO_LEITURA)
 			enquanto (nao a.fim_arquivo(arquivo)){
 			linha = a.ler_linha(arquivo)
 				se(linha != ""){
@@ -183,9 +186,10 @@ enquanto (opc != 7)
 				}	
 			}
 			a.fechar_arquivo(arquivo)
-		}
-		senao se (opc == 6){
-			inteiro arquivo = a.abrir_arquivo("./container.txt",a.MODO_LEITURA)
+			pare
+			
+		caso(6):
+			arquivo = a.abrir_arquivo("./container.txt",a.MODO_LEITURA)
 			enquanto (nao a.fim_arquivo(arquivo)){
 			linha = a.ler_linha(arquivo)
 				se(linha != ""){
@@ -194,21 +198,23 @@ enquanto (opc != 7)
 				}	
 			}
 			a.fechar_arquivo(arquivo)
+			pare
 		
-		}
-		senao se (opc == 7){
+		caso(7):
 			escreva("ok")
 			u.aguarde(1000)
-			
-		}
-		senao {
+			pare
+		
+		caso contrario:
 
 			escreva("opção invalida")
 			u.aguarde(3000)
-		}
-		limpa()
+			
 		
+		limpa()
+		}
 	}
+	
 	}
 }
 
@@ -221,7 +227,7 @@ enquanto (opc != 7)
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1182; 
+ * @POSICAO-CURSOR = 4952; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
