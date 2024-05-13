@@ -14,7 +14,7 @@ inclua biblioteca Arquivos --> a
 		cadeia rotulo[7] 
 
 		cadeia c[2][6]
-		inteiro a,b,opc = 0
+		inteiro linb,linf,a,b,opc = 0
 		cadeia root[6]
 
 		cadeia nbc[450],nck[450]
@@ -106,9 +106,16 @@ enquanto (opc != 7)
 			escreva("\npara retirar o navio apenas tecle o numero da sua posição: ")
 			leia(posi)
 
+			//definição de inicio e fim dos dados do navio
+			linf = posi * 6
+			linb = ( posi *6 ) - 5
+
+			
+
 			limpa()
 
 			//registrar linhas no vetor "nbc"
+			i = 0
 			arquivo = a.abrir_arquivo("C:/Users/User/Desktop/pr porto stud/navio.txt",a.MODO_LEITURA)
 			enquanto (nao a.fim_arquivo(arquivo)){ 
 			linha = a.ler_linha(arquivo)
@@ -127,8 +134,18 @@ enquanto (opc != 7)
 				escreva(nbc[i],"\n")
 			}
 
+			escreva("\n a linha inicial do navio é ",linb )
+			escreva("\n a linha final do navio é ",linf)
+
 			//retirar navio de um vetor para outro
-			
+			//para(i=0 ; i < 350 ; i++){
+				//cadeia linha1
+				//se( i < 
+					//linha1 = (nbc[i]
+				
+				
+					
+			//}
 			
 			
 			//limpar arquivo
@@ -138,10 +155,10 @@ enquanto (opc != 7)
 			//reescrever arquivo
 			arquivo = a.abrir_arquivo("C:/Users/User/Desktop/pr porto stud/navio.txt",a.MODO_ACRESCENTAR)
 			para(i= 0 ; i <= 350;i++ ){
-
 				linha = nbc[i]
-				a.escrever_linha(""+linha,arquivo)
-				
+				se(linha != "null"){
+					a.escrever_linha(""+linha,arquivo)
+				}
 				
 			}
 			a.fechar_arquivo(arquivo)
@@ -219,27 +236,27 @@ enquanto (opc != 7)
 			
 			
 			//limpar arquivo
-			arquivo = a.abrir_arquivo("C:/Users/User/Desktop/pr porto stud/container.txt",a.MODO_ESCRITA)
-			a.fechar_arquivo(arquivo)
+			//arquivo = a.abrir_arquivo("C:/Users/User/Desktop/pr porto stud/container.txt",a.MODO_ESCRITA)
+			//a.fechar_arquivo(arquivo)
 
 			//reescrever arquivo
-			arquivo = a.abrir_arquivo("C:/Users/User/Desktop/pr porto stud/container.txt",a.MODO_ACRESCENTAR)
-			para(i= 0 ; i <= 350;i++ ){
+			//arquivo = a.abrir_arquivo("C:/Users/User/Desktop/pr porto stud/container.txt",a.MODO_ACRESCENTAR)
+			//para(i= 0 ; i <= 350;i++ ){
 
-				linha = nbc[i]
-				a.escrever_linha(""+linha,arquivo)
+				//linha = nbc[i]
+				//a.escrever_linha(""+linha,arquivo)
 				
 				
-			}
-			a.fechar_arquivo(arquivo)
-			escreva("operação concluida")
+			
+			//a.fechar_arquivo(arquivo)
+			//escreva("operação concluida")
 			pare
 			
 		caso(5):
 			arquivo = a.abrir_arquivo("C:/Users/User/Desktop/pr porto stud/container.txt",a.MODO_LEITURA)
 			enquanto (nao a.fim_arquivo(arquivo)){
 			linha = a.ler_linha(arquivo)
-				se(linha != ""){
+				se(linha != "" e linha != "null"){
 					escreva(linha,"\n")
 					nu++
 				}	
@@ -286,7 +303,7 @@ enquanto (opc != 7)
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5999; 
+ * @POSICAO-CURSOR = 3674; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
