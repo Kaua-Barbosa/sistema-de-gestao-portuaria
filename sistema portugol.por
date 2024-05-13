@@ -114,6 +114,7 @@ enquanto (opc != 7)
 			inteiro lin4 = ( posi *6 ) - 2
 			inteiro lin5 = ( posi *6 ) - 1
 			inteiro lin6 = ( posi * 6 )
+			inteiro lin7 = lin6 + 1
 
 			
 
@@ -136,30 +137,36 @@ enquanto (opc != 7)
 
 	
 			//retirar navio de um vetor para outro "nck"
+			j = 0
 			para(i=0 ; i < 350 ; i++){
 			
-
-				se( (i!=lin1)e(i!=lin2)e(i!=lin3)e(i!=lin4)e(i!=lin5)e(i!=lin6) ){
+				se( (i!=lin1)e(i!=lin2)e(i!=lin3)e(i!=lin4)e(i!=lin5)e(i!=lin6)e(i!=lin7) ){
 					
-					nck[i] = nbc[i]
+					nck[j] = nbc[i]
+					j++
+				}senao{
+					
 				}	
 					
 			}
-			
-			//limpar arquivo
-			arquivo = a.abrir_arquivo("./navio.txt",a.MODO_ESCRITA)
-			a.fechar_arquivo(arquivo)
 
+			//limpar
+			//arquivo = a.abrir_arquivo("./navio.txt",a.MODO_ESCRITA)
+			//a.fechar_arquivo(arquivo)
 			//reescrever arquivo
-			arquivo = a.abrir_arquivo("C:/Users/grazi/OneDrive/Desktop/pasta do sistema porto/navio.txt",a.MODO_ACRESCENTAR)
+			arquivo = a.abrir_arquivo("./navio.txt",a.MODO_ESCRITA)
 				para(i= 0 ; i <= 350;i++ ){
 					linha = nck[i]
-					se(linha != "null"){
-						a.escrever_linha(""+linha,arquivo)
-					}
+					se(linha != "null" e linha != ""){
+						//arquivo = a.abrir_arquivo("./navio.txt",a.MODO_ACRESCENTAR)
+						
+						a.escrever_linha(linha,arquivo)
+						a.fechar_arquivo(arquivo)
+					}senao{	
+						}
 				
 				}
-			a.fechar_arquivo(arquivo)
+			
 			escreva("operação concluida")
 			pare
 
@@ -302,9 +309,9 @@ enquanto (opc != 7)
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3649; 
+ * @POSICAO-CURSOR = 3914; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {linha, 7, 9, 5}-{i, 13, 10, 1}-{nck, 20, 18, 3}-{lin1, 111, 11, 4}-{lin2, 112, 11, 4}-{lin3, 113, 11, 4}-{lin4, 114, 11, 4}-{lin5, 115, 11, 4}-{lin6, 116, 11, 4};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
