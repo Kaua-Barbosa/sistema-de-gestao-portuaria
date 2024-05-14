@@ -17,7 +17,7 @@ inclua biblioteca Arquivos --> a
 		inteiro a,b,opc = 0
 		cadeia root[6]
 
-		cadeia nbc[450],nck[450]
+		cadeia nbc[140],nck[140]
 		
 
 
@@ -138,7 +138,7 @@ enquanto (opc != 7)
 	
 			//retirar navio de um vetor para outro "nck"
 			j = 0
-			para(i=0 ; i < 350 ; i++){
+			para(i=0 ; i <= 139 ; i++){
 			
 				se( (i!=lin1)e(i!=lin2)e(i!=lin3)e(i!=lin4)e(i!=lin5)e(i!=lin6)e(i!=lin7) ){
 					
@@ -151,22 +151,18 @@ enquanto (opc != 7)
 			}
 
 			//limpar
-			//arquivo = a.abrir_arquivo("./navio.txt",a.MODO_ESCRITA)
+			//
 			//a.fechar_arquivo(arquivo)
 			//reescrever arquivo
 			arquivo = a.abrir_arquivo("./navio.txt",a.MODO_ESCRITA)
-				para(i= 0 ; i <= 350;i++ ){
+				para(i= 0 ; i <= 139;i++ ){
 					linha = nck[i]
-					se(linha != "null" e linha != ""){
-						//arquivo = a.abrir_arquivo("./navio.txt",a.MODO_ACRESCENTAR)
-						
-						a.escrever_linha(linha,arquivo)
-						a.fechar_arquivo(arquivo)
-					}senao{	
-						}
+					
+					a.escrever_linha(""+linha,arquivo)
+					
 				
 				}
-			
+			a.fechar_arquivo(arquivo)	
 			escreva("operação concluida")
 			pare
 
@@ -309,9 +305,9 @@ enquanto (opc != 7)
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3914; 
+ * @POSICAO-CURSOR = 3732; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {linha, 7, 9, 5}-{i, 13, 10, 1}-{nck, 20, 18, 3}-{lin1, 111, 11, 4}-{lin2, 112, 11, 4}-{lin3, 113, 11, 4}-{lin4, 114, 11, 4}-{lin5, 115, 11, 4}-{lin6, 116, 11, 4};
+ * @SIMBOLOS-INSPECIONADOS = {linha, 7, 9, 5}-{i, 13, 10, 1}-{nck, 20, 18, 3};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
