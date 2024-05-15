@@ -5,7 +5,7 @@ inclua biblioteca Arquivos --> a
 	funcao inicio()
 	{
 		cadeia linha
-		inteiro arquivo,posi,h,k,numb = 1 ,nu = 1
+		inteiro arquivo,posi,h,k,numb = 1 
 
 		logico res 
 		
@@ -28,7 +28,7 @@ inclua biblioteca Arquivos --> a
 		rotulo[4] = "tipo de carga: "
 		rotulo[5] = "quantidade de containers: "
 
-		root[0] = "navio de origem ou destino: "
+		root[0] = "navio de origem: "
 		root[1] = "data: "
 		root[2] = "horario: "
 		root[3] = "tipo de carga: "
@@ -43,6 +43,7 @@ inclua biblioteca Arquivos --> a
 		escreva("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~","\n") 
 		u.aguarde(2000)
 		limpa()
+		escreva("\no limite do porto são de 20 navios e 20 containers\n")
 enquanto (opc != 7)
 	{
 		escreva("\nseja bem vindo ao nosso sistema escolha uma das opções a seguir:")
@@ -90,14 +91,20 @@ enquanto (opc != 7)
 		pare	
 		
 	 caso(2):
-
+			i=1
+			j = 1
 			//apresentar na tela
 			arquivo = a.abrir_arquivo("./navio.txt",a.MODO_LEITURA)
 			enquanto (nao a.fim_arquivo(arquivo)){
 				linha = a.ler_linha(arquivo)
 				se(linha != ("") ){
-					escreva(linha,"\n")
-					nu++	
+					se(i== 1 ou ( (i-1) % 7 == 0)){
+						escreva(j,"*  ",linha,"\n")
+						j++
+					}senao{
+						escreva(linha,"\n")	
+					}
+					i++	
 				}
 				
 			}
@@ -207,12 +214,18 @@ enquanto (opc != 7)
 			
 			
 			//apresentar na tela
+			j=1
 			arquivo = a.abrir_arquivo("./container.txt",a.MODO_LEITURA)
 			enquanto (nao a.fim_arquivo(arquivo)){
 				linha = a.ler_linha(arquivo)
 				se(linha != ("") ){
-					escreva(linha,"\n")
-					
+					se(i==1 ou ((i-1) %6 == 0)){
+						escreva(j,"*  ",linha,"\n")
+						j++
+					}senao{
+						escreva(linha,"\n")
+					}
+					i++
 				}
 				
 			}
@@ -296,7 +309,7 @@ enquanto (opc != 7)
 			linha = a.ler_linha(arquivo)
 				se(linha != "" ){
 					escreva(linha,"\n")
-					nu++
+					
 				}	
 			}
 			a.fechar_arquivo(arquivo)
@@ -308,7 +321,7 @@ enquanto (opc != 7)
 			linha = a.ler_linha(arquivo)
 				se(linha != ""){
 					escreva(linha,"\n")
-					nu++
+					
 				}	
 			}
 			a.fechar_arquivo(arquivo)
@@ -342,7 +355,7 @@ enquanto (opc != 7)
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6267; 
+ * @POSICAO-CURSOR = 1053; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
